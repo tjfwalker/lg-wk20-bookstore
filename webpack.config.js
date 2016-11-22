@@ -1,18 +1,22 @@
-var path = require("path");
-var nodeExternals = require('webpack-node-externals')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin')
+const path = require("path");
+const nodeExternals = require('webpack-node-externals')
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
-  entry: ['./app.js', 'foundation-sites!./foundation-sites.config.js'],
+  entry: {
+    app: './app.js',
+    style: ['./public/stylesheets/style.sass']
+  },
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: 'bundle.js'
+    filename: '[name].js',
+    chunkFilename: '[name].css'
   },
   module: {
     loaders: [
-      { test: /foundation\/js\//, loader: 'imports?jQuery=jquery' },
       { test: /\.pug$/, include: [path.resolve(__dirname, 'views/')], loader: 'pug' },
+      { test: /\.sass$/, loader: ExtractTextPlugin.extract('css!sass') },
       {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -23,6 +27,11 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new ExtractTextPlugin('bundle.css', {
+      allChunks: true
+    })
+  ],
   target: 'node',
   externals: [nodeExternals()]
 };

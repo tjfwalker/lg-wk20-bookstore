@@ -3,8 +3,16 @@
   "version": "0.0.0",
   "private": false,
   "scripts": {
-    "start": "node ./bin/www"
+
+    "clean": "rm -rf build && mkdir build",
+    "build": "webpack --progress --colors --watch",
+    "watch-files": "nodemon -e sass,js --watch public -x \"yarn run build\"",
+
+    "start": "node ./bin/www",
+    "start:dev": "yarn run clean && yarn run watch-files & yarn start"
+
   },
+  
   "dependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
@@ -16,9 +24,9 @@
     "css-loader": "^0.26.0",
     "debug": "~2.2.0",
     "express": "~4.14.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
-    "foundation-sites": "^6.2.4",
-    "foundation-sites-loader": "^1.0.1",
+    "jquery": "^3.1.1",
     "morgan": "~1.7.0",
     "node-sass-middleware": "0.9.8",
     "pug": "~2.0.0-beta6",
@@ -31,10 +39,6 @@
     "webpack-node-externals": "^1.5.4"
   },
   "main": "app.js",
-  "devDependencies": {
-    "html-webpack-harddisk-plugin": "0.0.2",
-    "html-webpack-plugin": "^2.24.1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tjfwalker/lg-wk20-bookstore.git"
@@ -48,5 +52,9 @@
     "url": "https://github.com/tjfwalker/lg-wk20-bookstore/issues"
   },
   "homepage": "https://github.com/tjfwalker/lg-wk20-bookstore#readme",
-  "description": "Learners Guild Week 20 Bookstore"
+  "description": "Learners Guild Week 20 Bookstore",
+  "devDependencies": {
+    "node-sass": "^3.13.0",
+    "nodemon": "^1.11.0"
+  }
 }
