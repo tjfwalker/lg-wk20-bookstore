@@ -27,10 +27,14 @@
     "serve-favicon": "~2.3.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.3"
+    "webpack": "^1.13.3",
+    "webpack-node-externals": "^1.5.4"
   },
   "main": "app.js",
-  "devDependencies": {},
+  "devDependencies": {
+    "html-webpack-harddisk-plugin": "0.0.2",
+    "html-webpack-plugin": "^2.24.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tjfwalker/lg-wk20-bookstore.git"
