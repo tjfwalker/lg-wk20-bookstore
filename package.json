@@ -6,14 +6,43 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.8",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.18.0",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "couchdb-promises": "^1.4.0",
+    "css-loader": "^0.26.0",
     "debug": "~2.2.0",
     "express": "~4.14.0",
+    "file-loader": "^0.9.0",
+    "foundation-sites": "^6.2.4",
+    "foundation-sites-loader": "^1.0.1",
     "morgan": "~1.7.0",
     "node-sass-middleware": "0.9.8",
     "pug": "~2.0.0-beta6",
-    "serve-favicon": "~2.3.0"
-  }
+    "pug-loader": "^2.3.0",
+    "sass-loader": "^4.0.2",
+    "serve-favicon": "~2.3.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.3"
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjfwalker/lg-wk20-bookstore.git"
+  },
+  "contributors": [
+    "Melody Mustaine <mel.mustaine@gmail.com>",
+    "TJ Walker <tjfwalker+npm@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjfwalker/lg-wk20-bookstore/issues"
+  },
+  "homepage": "https://github.com/tjfwalker/lg-wk20-bookstore#readme",
+  "description": "Learners Guild Week 20 Bookstore"
 }
